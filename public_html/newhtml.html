@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/categories.js"></script>
+        <script src="js/knockout-3.4.1.js"></script>
+        <script src="js/knockout.mapping-latest.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
+        <!--<script>
+            var categories;
+            var myHeader = new Headers();
+            myHeader.append("Accept", "application/json")
+            fetch("http://localhost:8080/biblio/webresources/com.miage.biblio.categorie", {
+                method: 'get',
+                headers: myHeader
+
+
+            }).then(function (response) {
+                return response.json();
+            }).then(function (toto) {
+                document.body.innerHTML = JSON.stringify(toto);
+                
+                //categories=response.json();
+            }).catch(function (err) {
+
+                document.body.innerHTML = err;
+            });
+
+        </script> -->
+
+    </head>
+    <body onload="getData()">
+        <h2>Categories</h2>  
+        <div >  
+            <table class="table">  
+                <tr>  
+                    <th>Id</th>  
+                    <th>Nom</th>  
+                    <th>déscription</th>  
+                </tr>  
+                <tbody data-bind="foreach: categories">  
+                    <tr>  
+                        <td>  
+                            <label data-bind='text: id' ></label>  
+                        </td>  
+                        <td>  
+                            <input data-bind='value: nom' />   
+                        </td>  
+                        <td>  
+                            <input data-bind='value: description, enable: (parseInt(id())%2 ===0)' />  
+                            <!--<input data-bind='value: description' />-->
+                        </td>  
+                    </tr>  
+                </tbody>  
+            </table>  
+        </div>  
+        <div class="error"></div> 
+    </body>
+</html>
