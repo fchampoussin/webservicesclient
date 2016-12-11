@@ -42,12 +42,19 @@ and open the template in the editor.
     </head>
     <body onload="getData()">
         <h2>Categories</h2>  
+
+        <form data-bind="submit: sendData">
+          <!--  nom: <input data-bind="value : nom" type="text" name="nom"><br>
+            description: <input data-bind="value : description" type="text" name="desc"><br> -->
+            <button type="submit">Submit</button>
+        </form>
         <div >  
             <table class="table">  
                 <tr>  
                     <th>Id</th>  
                     <th>Nom</th>  
-                    <th>déscription</th>  
+                    <th>déscription</th> 
+                    <th>action</th>  
                 </tr>  
                 <tbody data-bind="foreach: categories">  
                     <tr>  
@@ -61,6 +68,10 @@ and open the template in the editor.
                             <input data-bind='value: description, enable: (parseInt(id())%2 ===0)' />  
                             <!--<input data-bind='value: description' />-->
                         </td>  
+                        <td>  
+                            <button data-bind="click: $parent.updateData">Update</button> 
+                            <button data-bind="click: $parent.deleteData">Remove</button> 
+                        </td> 
                     </tr>  
                 </tbody>  
             </table>  
